@@ -9,12 +9,16 @@ env:
 phases:
   pre_build:
     commands:
-      - echo ${DOCKERHUB_TOKEN} | docker login -u ${DOCKERHUB_USER} --password-stdin 
+      # - echo ${DOCKERHUB_TOKEN} | docker login -u ${DOCKERHUB_USER} --password-stdin 
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 891377082819.dkr.ecr.ap-south-1.amazonaws.com
   build:
     commands:
-      - docker build -t my-angular-app:latest .
+      # - docker build -t my-angular-app:latest .
+      - docker build -t ecrimageb7 .
 
   post_build:
     commands:
-      - docker tag my-angular-app:latest ${DOCKERHUB_USER}/my-angular-app:latest
-      - docker push ${DOCKERHUB_USER}/my-angular-app:latest
+      # - docker tag my-angular-app:latest ${DOCKERHUB_USER}/my-angular-app:latest
+      # - docker push ${DOCKERHUB_USER}/my-angular-app:latest
+      - docker tag ecrimageb7:latest 891377082819.dkr.ecr.ap-south-1.amazonaws.com/ecrimageb7:latest
+      - docker push 891377082819.dkr.ecr.ap-south-1.amazonaws.com/ecrimageb7:latest
