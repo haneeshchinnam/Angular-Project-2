@@ -14,11 +14,11 @@ phases:
   build:
     commands:
       # - docker build -t my-angular-app:latest .
-      - docker build -t ecrimageb7 .
+      - docker build -t angular_repo .
 
   post_build:
     commands:
       # - docker tag my-angular-app:latest ${DOCKERHUB_USER}/my-angular-app:latest
       # - docker push ${DOCKERHUB_USER}/my-angular-app:latest
-      - docker tag ecrimageb7:latest 891377082819.dkr.ecr.ap-south-1.amazonaws.com/ecrimageb7:latest
-      - docker push 891377082819.dkr.ecr.ap-south-1.amazonaws.com/ecrimageb7:latest
+      - docker tag angular_repo:latest 891377082819.dkr.ecr.ap-south-1.amazonaws.com/angular_repo:latest
+      - docker push 891377082819.dkr.ecr.ap-south-1.amazonaws.com/angular_repo:latest
