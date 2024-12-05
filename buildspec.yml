@@ -22,3 +22,8 @@ phases:
       # - docker push ${DOCKERHUB_USER}/my-angular-app:latest
       - docker tag angular_repo:latest 891377082819.dkr.ecr.ap-south-1.amazonaws.com/angular_repo:latest
       - docker push 891377082819.dkr.ecr.ap-south-1.amazonaws.com/angular_repo:latest
+      - printf '[{ "name": "angularapp", "imageUri": "891377082819.dkr.ecr.ap-south-1.amazonaws.com/angular_repo:latest"}]' > imagedefinitions.json
+
+artifacts:
+  files:
+    - imagedefinitions.json
